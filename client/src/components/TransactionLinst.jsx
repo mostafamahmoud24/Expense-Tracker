@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import Transaction from "./Transaction";
 
 export default function TransactionLinst() {
-  const { transaction } = useContext(GlobalContext);
+  const { transaction, getTransactions } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getTransactions();
+    // eslint-disable-next-line
+  }, []);
 
   console.log(transaction);
 
